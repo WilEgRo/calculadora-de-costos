@@ -92,13 +92,20 @@ function ocultarDivision(){
   document.getElementById("divirPreparacion").style.display = "none";
 }
 
+// el main cambiar su height
+
+function ajustarAlto(){
+  document.querySelector('main').style.height = "auto";
+}
+
 // boton calcular
 
 function calcularTotal(evento) {
     evento.preventDefault();
 
     limpiarResultados();
-
+    ajustarAlto()
+    
     const listaIngredientes = document.getElementById("listaIngredientes");
     const ingredientes = listaIngredientes.getElementsByTagName('li');
     

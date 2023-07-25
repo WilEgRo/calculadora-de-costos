@@ -1,36 +1,53 @@
 header  {
-    background-color: #8d8d8f;
+    background: url(imagenes/bg.jpg);
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+#cajaSuperior{
+    flex: 1;
+    display: flex;
+}
+
+#navegación {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
     align-items: center;
 }
 
-#cajaSuperior {
+ul{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: url(imagenes/bg.jpg);
-    padding: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    margin-right: 10px;
 }
 
 img{
-    width: 1rem;
-    height: 1rem;
+    width: 4rem;
+    height: 4rem;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 }
 
+#logo{
+    width: 3rem;
+    height: 3rem;
+}
 
 main{
     background-image: url("imagenes/logo.png");
-    background-repeat:no-repeat;
-    background-size: contain;
     background-position: center;
-    margin-top: 1rem;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin-top: 7px;
 }
 
 #encabezado{
@@ -264,6 +281,7 @@ td {
     text-transform: uppercase;
     margin: 10px 0 0;
     font-weight: bold;
+    text-align: center;
 }
 
 #resultadoSinEnvase2 {
@@ -383,7 +401,7 @@ td {
     justify-content: center;
 }
 
-#jaja{
+footer{
     text-align: center;
     background: url(imagenes/bg.jpg);
     padding: 40px;
@@ -517,5 +535,37 @@ td {
         font-size: 33px;
         width: 13vh;
         height: 6vh;
+    }
+}
+
+@media screen and (max-width: 381px){
+    #crearIngredientes input[type="number"] {
+        margin: 5px;
+    }
+    #crearIngredientes {
+        margin-top: 8px;
+    }
+    #listah2 {
+        margin: 5px auto;
+    }
+    #formulario1 {
+        margin: 0px 0px 0 91px;
+    }
+    #divCantidadUtilizada, #divTotalPaquete, #divPrecio {
+        height: 2rem;
+        width: 3rem;
+        font-size: 8px;
+    }
+    #span1 {
+        margin: 8px;
+        height: 2rem;
+        width: 5rem;
+        font-size: 9px;
+        overflow: hidden;
+    }
+    #LabelFormulario3, #LabelFormulario2, #LabelFormulario4 {
+        margin: 1px 0px 13px 9px;
+        height: 64px;
+        width: 10rem;
     }
 }
