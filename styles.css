@@ -1,0 +1,521 @@
+header  {
+    background-color: #8d8d8f;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#cajaSuperior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url(imagenes/bg.jpg);
+    padding: 40px;
+}
+
+img{
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main{
+    background-image: url("imagenes/logo.png");
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 1rem;
+}
+
+#encabezado{
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    border: solid  #ffcccc 4px;
+    background-color: #ffcccc;
+    height: auto;
+    width: 15em;
+    margin: auto;
+    font-weight: bold;
+}
+#crearIngredientes {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    /*height: 20vh; /* Ajusta la altura del formulario para ocupar el 100% de la altura de la ventana */
+}
+
+#label1{
+    text-transform: uppercase;
+    background-color: #fff1f1;
+    font-weight: bold;    
+    border: solid  #ffcccc 4px;
+    background-color: #ffcccc;
+    font-weight: bold;
+}
+
+#crearIngredientes label,
+#crearIngredientes input,
+#crearIngredientes button {
+    display: block;
+    margin: 5px; /* Añade un margen inferior para separar los elementos */
+    text-align: center;
+    font-size: 31px;
+    text-transform: uppercase;
+}
+
+#padre{
+    display: flex;
+    margin: auto;
+    text-align: center;
+    width: 40em;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+#formulario1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0px 0 223px;
+}
+
+#divCantidadUtilizada,
+#divTotalPaquete,
+#divPrecio {
+    margin: 8px 0px 8px 11px;
+    height: 43px;
+    width: 13vh;
+    border: solid #ffcccc 4px;
+    background-color: #ffcccc;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+#crearIngredientes input[type="number"] {
+    width: 2em;
+    height: 1em;
+    text-align: center;
+    font-size: 4em;
+    border: #ffcccc solid;
+    font-weight: bold;
+}
+
+#crearIngredientes button[type="submit"] {
+    width: 8em;
+    height: 3em;
+    font-size: 21px;
+    border: none;
+    border-radius: 17px;
+    font-weight: bold;
+}
+
+#listah2 {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 31px;
+    text-transform: uppercase;
+    width: 13em;
+    border: solid  #ffcccc 4px;
+    background-color: #ffcccc;
+    font-weight: bold;
+}
+
+#listaIngredientesFormulario2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Ajusta la altura del formulario para ocupar el 100% de la altura de la ventana */
+}
+
+#span1 {
+    display: inline-flex;
+    margin: 8px;
+    height: 25px;
+    width: 13em;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border: solid  #ffcccc 4px;
+    background-color: #ffcccc;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada{
+    text-align: center;
+    margin: 0 5px;
+    font-family: cursive;
+    font-size: 13px;
+    width: 13vh;
+    height: 3vh;
+    color: red;
+    border: #ffcccc solid;
+    font-weight: bold;
+}
+
+li{
+    display: flex;
+    align-items: center;
+}
+
+#primeraTabla,
+#segundaTabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; 
+    text-transform: uppercase;
+}
+
+#resultadoTotal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+#botonCalcular {
+    margin: 5px;
+    width: 8em;
+    height: 3em;
+    font-size: 19px;
+    border: none;
+    border-radius: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#primeraTabla,
+#segundaTabla {
+    margin: 2em;
+}
+
+#tabla1,
+#tabla2 {
+    border: solid black 2px;
+    text-align: center;
+}
+
+th {
+    border: solid black 2px;
+    background: #ffcccc;
+    padding: 8px;
+}
+
+td {
+    border-right: solid black 2px;
+    background: #ffffff;
+    padding: 8px;
+}
+
+#legendDelSelector {
+    border: solid black 2px;
+    background: #ffcccc;
+    padding: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#flechaNegra,
+#flechaNegra2,
+#flechaNegra3,
+#flechaNegra4 {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black;
+}
+
+#selectorPorcentual {
+    margin: 5px;
+    width: 6em;
+    height: 2em;
+    font-size: 19px;
+    border-radius: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+#resultadoSinEnvase {
+    border: solid black 2px;
+    background: #ffcccc;
+    padding: 8px;
+    text-transform: uppercase;
+    margin: 10px 0 0;
+    font-weight: bold;
+}
+
+#resultadoSinEnvase2 {
+    font-size: 4vh;
+    color: red;
+    height: 4em;
+    width: 4em;
+    display: flex;
+    border: solid black;
+    border-radius: 2em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    background: white;
+}
+
+#formulario2,
+#formulario3,
+#formulario4 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#resultadoSuma,
+#resultadoSuma2,
+#resultadoDividir,
+#divParaLaDivision,
+#dividirPreparacion {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#LabelFormulario3,
+#LabelFormulario2,
+#LabelFormulario4 {
+    display: inline-flex;
+    margin: 8px;
+    height: 50px;
+    width: 13em;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border: solid #ffcccc 4px;
+    background-color: #ffcccc;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#inputFormulario2,
+#inputFormulario3,
+#inputFormulario4 {
+    text-align: center;
+    margin: 0 5px;
+    font-family: cursive;
+    font-size: 13px;
+    width: 13vh;
+    height: 3vh;
+    color: red;
+    border: #ffcccc solid;
+    font-weight: bold;
+}
+
+#botonFormulario2,
+#botonFormulario3,
+#botonFormulario4 {
+    margin: 5px;
+    width: 8em;
+    height: 3em;
+    font-size: 19px;
+    border: none;
+    border-radius: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#ultimoH2,
+#ultimoH3 {
+    border: solid black 2px;
+    background: #ffcccc;
+    padding: 8px;
+    text-transform: uppercase;
+    margin: 10px 16px 0;
+    font-weight: bold;
+    height: 47px;
+    width: 173px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+#precioDividido,
+#precioMasEnvase,
+#precioMasEnvase2 {
+    font-size: 4vh;
+    color: red;
+    height: 4em;
+    width: 4em;
+    display: flex;
+    border: solid black;
+    border-radius: 2em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    background: white;
+}
+
+#sumaMasdividir,
+#resultadosDeLasSumas {
+    display: flex;
+    justify-content: center;
+}
+
+#jaja{
+    text-align: center;
+    background: url(imagenes/bg.jpg);
+    padding: 40px;
+}
+
+/*responsivo*/
+
+@media screen and (max-width: 728px){
+    #encabezado{
+        width: auto;
+    }
+
+}
+
+@media screen and (max-width: 653px){
+
+    #padre{
+        width: auto;
+    }
+
+    #span1{
+        font-size: 12px;
+        width: 10em;
+    }
+    #formulario1 {
+        margin: 0 0px 0 136px;
+    }
+}
+
+@media screen and (max-width: 567px){
+    #inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada {
+        width: 10vh;   
+    }
+    
+    #formulario1 {
+        margin: 0 0 0 135px;
+    }
+
+    #divCantidadUtilizada, #divTotalPaquete, #divPrecio {
+        width: 10vh;
+    }
+}
+
+@media screen and (max-width: 439px){
+    #crearIngredientes label, #crearIngredientes input, #crearIngredientes button {
+        display: flex;
+        margin: auto;
+        text-align: center;
+        font-size: 25px;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 481px){
+    #crearIngredientes {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    #crearIngredientes label, #crearIngredientes input, #crearIngredientes button {
+        display: flex;
+        margin: auto;
+        text-align: center;
+        font-size: 25px;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    #crearIngredientes input[type="number"] {
+        width: 5rem;
+        height: 3rem;
+        font-size: 3em;
+    }
+    #listah2 {
+        display: flex;
+        margin: auto;
+        text-align: center;
+        font-size: 27px;
+        text-transform: uppercase;
+        width: 12em;
+        border: solid #ffcccc 4px;
+        background-color: #ffcccc;
+        font-weight: bold;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #span1 {
+        margin: 8px;
+        height: 40px;
+        width: 7em;
+        font-size: 11px;
+        overflow: hidden;
+    }
+    #inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada {
+        font-size: 13px;
+        width: 7vh;
+        height: 5vh;
+    }
+
+    #formulario1 {
+        margin: 0px 0px 0 90px;
+    }
+
+    #divCantidadUtilizada, #divTotalPaquete, #divPrecio {
+        height: 3rem;
+        width: 4rem;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 439px){
+    #LabelFormulario3, #LabelFormulario2, #LabelFormulario4 {
+        margin: 1px 0px 13px 9px;
+        height: 58px;
+        width: 11em;
+    }
+    #ultimoH2, #ultimoH3 {   
+        margin: 4px 9px 0;
+        height: 39px;
+        width: 154px;   
+    }
+    #inputFormulario2, #inputFormulario3, #inputFormulario4 {
+        margin: 0 5px;
+        font-size: 33px;
+        width: 13vh;
+        height: 6vh;
+    }
+}
