@@ -5,7 +5,7 @@ header  {
     flex-direction: row-reverse;
 }
 
-#cajaSuperior{
+#cajaInferior{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ li{
     margin-right: 10px;
 }
 
-img{
+#logo120{
     width: 4rem;
     height: 4rem;
     display: flex;
@@ -39,7 +39,7 @@ img{
     align-items: center;
 }
 
-img:hover{
+#logo120:hover{
     transform: scale(1.20);
     content: url("imagenes/loco_250x250.png");
 }
@@ -124,7 +124,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 0px 0 223px;
+    margin: 0 0px 0 210px;
 }
 
 #divCantidadUtilizada,
@@ -470,7 +470,7 @@ td {
     }
     
     #formulario1 {
-        margin: 0 0 0 135px;
+        margin: 0 0 0 122px;
     }
 
     #divCantidadUtilizada, #divTotalPaquete, #divPrecio {
@@ -549,6 +549,7 @@ td {
         height: 3rem;
         width: 4rem;
         font-size: 10px;
+        margin: 8px 4px 8px 1px;
     }
 }
 
@@ -585,9 +586,9 @@ td {
         margin: 0px 0px 0 91px;
     }
     #divCantidadUtilizada, #divTotalPaquete, #divPrecio {
-        height: 2rem;
-        width: 3rem;
-        font-size: 8px;
+        height: 3rem;
+        width: 4rem;
+        font-size: 10px;
     }
     #span1 {
         margin: 8px;
