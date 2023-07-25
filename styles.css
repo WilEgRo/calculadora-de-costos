@@ -16,7 +16,7 @@ header  {
     align-items: center;
 }
 
-ul{
+#ulLogos{
     display: flex;
     list-style: none;
     margin: 0;
@@ -462,13 +462,13 @@ footer{
     #crearIngredientes {
         display: flex;
         flex-direction: column;
-        margin: auto;
+        margin: 5px auto;
         align-items: center;
         justify-content: center;
     }
     #crearIngredientes label, #crearIngredientes input, #crearIngredientes button {
         display: flex;
-        margin: auto;
+        margin: 5px auto 0;
         text-align: center;
         font-size: 25px;
         align-items: center;
