@@ -1,7 +1,8 @@
 
 function generarLista(evento) {
     evento.preventDefault();
-
+    ajustarAlto();
+    
     const cantidadIngredientes = parseInt(document.getElementById("cantidadIngredientes").value);
     const listaIngredientes = document.getElementById("listaIngredientes");
     const nuevoDiv = document. getElementById('formulario1');
@@ -104,8 +105,8 @@ function calcularTotal(evento) {
     evento.preventDefault();
 
     limpiarResultados();
-    ajustarAlto()
-    
+    ajustarAlto();
+
     const listaIngredientes = document.getElementById("listaIngredientes");
     const ingredientes = listaIngredientes.getElementsByTagName('li');
     

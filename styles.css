@@ -8,6 +8,9 @@ header  {
 #cajaSuperior{
     flex: 1;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap
 }
 
 #navegación {
@@ -36,9 +39,27 @@ img{
     align-items: center;
 }
 
-#logo{
+img:hover{
+    transform: scale(1.20);
+    content: url("imagenes/loco_250x250.png");
+}
+
+#logoFacebook, #logoWhatsapp, #logoTiktok{
     width: 3rem;
     height: 3rem;
+}
+
+#logoFacebook:hover {
+    transform: scale(1.20);
+    content: url("imagenes/facebookPintado.png");
+}
+#logoWhatsapp:hover {
+    transform: scale(1.20);
+    content: url("imagenes/whatsappPintado.png");
+}
+#logoTiktok:hover {
+    transform: scale(1.20);
+    content: url("imagenes/tiktokPintado.png");
 }
 
 main{
@@ -401,10 +422,22 @@ td {
     justify-content: center;
 }
 
-footer{
+#pie{
     text-align: center;
     background: url(imagenes/bg.jpg);
-    padding: 40px;
+    padding: 12px;   
+}
+
+#LaMartina{
+    color: #ffffff;
+    font-size: 13px;
+    margin: 20px;
+}
+
+#tomatePie{
+    width: 12px;
+    height: 12px;
+    display: inline;    
 }
 
 /*responsivo*/
