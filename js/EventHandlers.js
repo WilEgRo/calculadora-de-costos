@@ -113,24 +113,24 @@ export class EventHandlers {
   /** Registra los listeners de los formularios de acción post-cálculo. */
   _registrarEventosAcciones() {
     const {
-      inputDivision,      botonDividir,
-      inputEnvaseDirecto, botonEnvaseDirecto,
-      inputEnvasePorcion, botonEnvasePorcion,
+      formDivision,       inputDivision,
+      formEnvaseDirecto,  inputEnvaseDirecto,
+      formEnvasePorcion,  inputEnvasePorcion,
       contenedorResultados,
     } = this._ui.renderizarFormulariosAcciones();
 
     this._ui.crearContenedorDivision(contenedorResultados);
     this._ui.ocultarFormEnvasePorcion();
 
-    botonDividir.addEventListener('click', (e) => {
+    formDivision.addEventListener('submit', (e) => {
       e.preventDefault();
       this._manejarDividirPorciones(inputDivision, contenedorResultados);
     });
-    botonEnvaseDirecto.addEventListener('click', (e) => {
+    formEnvaseDirecto.addEventListener('submit', (e) => {
       e.preventDefault();
       this._manejarSumarEnvaseDirecto(inputEnvaseDirecto, contenedorResultados);
     });
-    botonEnvasePorcion.addEventListener('click', (e) => {
+    formEnvasePorcion.addEventListener('submit', (e) => {
       e.preventDefault();
       this._manejarSumarEnvasePorcion(inputEnvasePorcion, contenedorResultados);
     });

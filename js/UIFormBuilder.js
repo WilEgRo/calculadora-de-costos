@@ -64,10 +64,13 @@ export class UIFormBuilder {
     main.appendChild(contenedorResultados);
 
     return {
+      formDivision:         formDivision.form,
       inputDivision:        formDivision.input,
       botonDividir:         formDivision.boton,
+      formEnvaseDirecto:    formEnvaseDirecto.form,
       inputEnvaseDirecto:   formEnvaseDirecto.input,
       botonEnvaseDirecto:   formEnvaseDirecto.boton,
+      formEnvasePorcion:    formEnvasePorcion.form,
       inputEnvasePorcion:   formEnvasePorcion.input,
       botonEnvasePorcion:   formEnvasePorcion.boton,
       contenedorResultados,
@@ -177,7 +180,7 @@ export class UIFormBuilder {
 
   /**
    * Crea un formulario (label + input + button) dentro del contenedor dado.
-   * @returns {{ input: HTMLInputElement, boton: HTMLButtonElement }}
+  * @returns {{ form: HTMLFormElement, input: HTMLInputElement, boton: HTMLButtonElement }}
    */
   _crearFormulario(contenedor, formId, labelTexto, inputId, botonId, botonTexto) {
     const form  = document.createElement('form');
@@ -198,11 +201,11 @@ export class UIFormBuilder {
 
     const boton       = document.createElement('button');
     boton.id          = botonId;
-    boton.type        = 'button';
+    boton.type        = 'submit';
     boton.textContent = botonTexto;
     form.appendChild(boton);
 
-    return { input, boton };
+    return { form, input, boton };
   }
 
   /**
