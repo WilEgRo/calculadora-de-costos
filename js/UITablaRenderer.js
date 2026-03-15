@@ -40,19 +40,41 @@ export class UITablaRenderer {
 
     for (let i = 0; i < cantidad; i++) {
       const liItem = document.createElement('li');
+      const indice = i + 1;
 
       const spanNombre       = document.createElement('span');
+      spanNombre.className   = 'spanIngrediente';
+      spanNombre.id          = `spanIngrediente${indice}`;
       spanNombre.textContent = nombresIngredientes[i];
       liItem.appendChild(spanNombre);
 
       [
-        { placeholder: 'Precio',             ariaLabel: `Precio de ${nombresIngredientes[i]}` },
-        { placeholder: 'Cantidad comprada',  ariaLabel: `Cantidad comprada de ${nombresIngredientes[i]}` },
-        { placeholder: 'Cantidad utilizada', ariaLabel: `Cantidad utilizada de ${nombresIngredientes[i]}` },
-      ].forEach(({ placeholder, ariaLabel }) => {
+        {
+          placeholder: 'Precio',
+          ariaLabel: `Precio de ${nombresIngredientes[i]}`,
+          clase: 'inputPrecio',
+          baseId: 'inputPrecio',
+        },
+        {
+          placeholder: 'Cantidad comprada',
+          ariaLabel: `Cantidad comprada de ${nombresIngredientes[i]}`,
+          clase: 'inputCantidadComprada',
+          baseId: 'inputCantidadComprada',
+        },
+        {
+          placeholder: 'Cantidad utilizada',
+          ariaLabel: `Cantidad utilizada de ${nombresIngredientes[i]}`,
+          clase: 'inputCantidadUtilizada',
+          baseId: 'inputCantidadUtilizada',
+        },
+      ].forEach(({ placeholder, ariaLabel, clase, baseId }) => {
         const input       = document.createElement('input');
         input.type        = 'text';
         input.placeholder = placeholder;
+        input.className   = clase;
+        input.id          = `${baseId}${indice}`;
+        input.name        = `${baseId}${indice}`;
+        input.autocomplete = 'off';
         input.setAttribute('aria-label', ariaLabel);
         liItem.appendChild(input);
       });

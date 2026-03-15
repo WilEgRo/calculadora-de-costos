@@ -182,7 +182,8 @@ main{
     height: auto; /* Ajusta la altura del formulario para ocupar el 100% de la altura de la ventana */
 }
 
-#span1 {
+#span1,
+.spanIngrediente {
     display: inline-flex;
     margin: 8px;
     height: 25px;
@@ -196,7 +197,8 @@ main{
     text-transform: uppercase;
 }
 
-#inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada{
+#inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada,
+.inputPrecio, .inputCantidadComprada, .inputCantidadUtilizada {
     text-align: center;
     margin: 0 5px;
     font-family: cursive;
@@ -481,7 +483,8 @@ td {
         width: auto;
     }
 
-    #span1{
+    #span1,
+    .spanIngrediente {
         font-size: 12px;
         width: 10em;
     }
@@ -491,7 +494,8 @@ td {
 }
 
 @media screen and (max-width: 567px){
-    #inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada {
+    #inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada,
+    .inputPrecio, .inputCantidadComprada, .inputCantidadUtilizada {
         width: 10vh;   
     }
     
@@ -554,14 +558,16 @@ td {
         justify-content: center;
         flex-direction: column;
     }
-    #span1 {
+    #span1,
+    .spanIngrediente {
         margin: 8px;
         height: 40px;
         width: 7em;
         font-size: 11px;
         overflow: hidden;
     }
-    #inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada {
+    #inputPrecio, #inputCantidadComprada, #inputCantidadUtilizada,
+    .inputPrecio, .inputCantidadComprada, .inputCantidadUtilizada {
         font-size: 13px;
         width: 7vh;
         height: 5vh;
@@ -616,7 +622,8 @@ td {
         width: 4rem;
         font-size: 10px;
     }
-    #span1 {
+    #span1,
+    .spanIngrediente {
         margin: 8px;
         height: 2rem;
         width: 5rem;

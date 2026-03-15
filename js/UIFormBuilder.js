@@ -185,11 +185,14 @@ export class UIFormBuilder {
     contenedor.appendChild(form);
 
     const label         = document.createElement('label');
+    label.id            = inputId.replace('input', 'Label');
+    label.htmlFor       = inputId;
     label.textContent   = labelTexto;
     form.appendChild(label);
 
     const input  = document.createElement('input');
     input.id     = inputId;
+    input.name   = inputId;
     input.type   = 'text';
     form.appendChild(input);
 
