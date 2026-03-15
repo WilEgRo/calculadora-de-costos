@@ -16,7 +16,7 @@ function generarLista(evento) {
     nuevoDiv.appendChild(divPrecio);
 
     const divTotalPaquete = document.createElement('h3');
-    divTotalPaquete.textContent = 'total del paquete comprado gr/lm/U';
+    divTotalPaquete.textContent = 'total del paquete comprado gr/ml/U';
     divTotalPaquete.id = 'divTotalPaquete';
     nuevoDiv.appendChild(divTotalPaquete);
 
