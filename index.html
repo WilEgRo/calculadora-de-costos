@@ -38,9 +38,9 @@
         <section id="prueba">
             <h1 id="encabezado">CALCULADORA DE COSTOS</h1>
 
-            <form id="crearIngredientes" onsubmit="generarLista(event)">
+            <form id="crearIngredientes">
                 <label id="label1" for="cantidadIngredientes">Cantidad de ingredientes</label>
-                <input type="number" id="cantidadIngredientes" name="cantidadIngredientes" min="1" required onfocus="this.form.removeAttribute('onsubmit');">
+                <input type="number" id="cantidadIngredientes" name="cantidadIngredientes" min="1" required>
                 <button type="submit">Crear lista</button>
             </form>
             
@@ -74,10 +74,21 @@
 
         </main>
         
-        <section id="logicas">
-            <script src="logica.js"></script>
-        </section>
-        
+        <!-- Cargador de entrada: file:// usa logica.js, http(s) usa módulos ES6 -->
+        <script>
+            (function cargarEntrada() {
+                const scriptEntrada = document.createElement('script');
+                if (window.location.protocol === 'file:') {
+                    scriptEntrada.src = 'logica.js';
+                    scriptEntrada.defer = true;
+                } else {
+                    scriptEntrada.type = 'module';
+                    scriptEntrada.src = 'js/App.js';
+                }
+                document.body.appendChild(scriptEntrada);
+            })();
+        </script>
+
         <footer id="pie">
             <div id="cajaInferior">
                 <h1>

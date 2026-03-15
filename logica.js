@@ -218,98 +218,45 @@ function calcularTotal(evento) {
     const prueba = document.getElementById("resultadoTotal");
     prueba.innerHTML = '';
 
-    const legendDelSelector = document.createElement('legend');
+    // Precio de venta con 100% de ganancia (multiplicador ×3)
+    // El desglose (2 %, 30 %, 68 %) se calcula sobre la GANANCIA mostrada en tabla.
+    var precioVenta      = total * 3;
+    var gananciaTotal    = total;
+    var resultadosFinales = { 100: precioVenta };
+
+    var legendDelSelector = document.createElement('legend');
     legendDelSelector.id = 'legendDelSelector';
-    legendDelSelector.textContent = "ganancia en porcentaje";
+    legendDelSelector.textContent = 'Precio de venta con 100% de ganancia';
     prueba.appendChild(legendDelSelector);
 
-    const flecha = document.createElement('p');
+    var flecha = document.createElement('p');
     flecha.id = 'flechaNegra';
     prueba.appendChild(flecha);
 
-    const selectorDePorcentaje  = document.createElement('select');
-    selectorDePorcentaje.id = "selectorPorcentual";
-    prueba.appendChild(selectorDePorcentaje);
+    var precioElem = document.createElement('p');
+    precioElem.id = 'resultadoSinEnvase2';
+    precioElem.textContent = precioVenta.toFixed(2) + ' BS';
+    prueba.appendChild(precioElem);
 
-    for(let n = 100; n >= 50; n-=10){
-      const selectorPorcentual = document.getElementById("selectorPorcentual")
+    var tituloDesglose = document.createElement('p');
+    tituloDesglose.id = 'resultadoSinEnvase';
+    tituloDesglose.textContent = 'Desglose del 100% de ganancia:';
+    prueba.appendChild(tituloDesglose);
 
-      const crearID = "option"+n;
-      const crearNombre = n.toString();
-
-      const opciones = document.createElement('option');
-      opciones.id = crearID.toString();
-      opciones.textContent = crearNombre + "%";
-      selectorPorcentual.appendChild(opciones);
-    }
-    const selectorPorcentual = document.getElementById("selectorPorcentual");
-    let divResultadoPorcentaje = null;
-    let flechaNegra2 = null;
-    let divResultadoPorcentaje2 = null;
-    
-    const resultadosFinales = {};
-
-    selectorPorcentual.addEventListener("change", function() {
-      const seleccionarOpcion = parseInt(selectorPorcentual.value);
-      
-      const multiplicadores = {
-        100: 3,
-        90: 2.9,
-        80: 2.8,
-        70: 2.7,
-        60: 2.6,
-        50: 2.5
-      };
-      
-      const multiplicador = multiplicadores[seleccionarOpcion];
-      
-      if (multiplicador) {
-        resultadosFinales[seleccionarOpcion] = totalSimple * multiplicador; // Almacenamos el resultado final en el objeto resultadosFinales
-        
-        if (divResultadoPorcentaje) {
-          divResultadoPorcentaje.remove();
-          flechaNegra2.remove();
-          divResultadoPorcentaje2.remove();
-        }
-      
-        divResultadoPorcentaje = document.createElement('p');
-        divResultadoPorcentaje.id = "resultadoSinEnvase";
-        flechaNegra2 = document.createElement('p');
-        flechaNegra2.id = "flechaNegra2";
-        divResultadoPorcentaje2 = document.createElement('p');
-        divResultadoPorcentaje2.id = "resultadoSinEnvase2";
-        
-
-        if (seleccionarOpcion === 100) {
-          divResultadoPorcentaje.textContent = 'El total por el ' + seleccionarOpcion + '% de ganancia';
-          flechaNegra2.textContent = "";
-          divResultadoPorcentaje2.textContent = resultadosFinales[seleccionarOpcion].toFixed(2) + " BS";
-        } else {
-          const dosPorciento = (resultadosFinales[seleccionarOpcion] * 2) / 100;
-          resultadosFinales[seleccionarOpcion] += dosPorciento;
-          divResultadoPorcentaje.textContent = 'El total por el ' + seleccionarOpcion + '% de ganancia más el 2% de servicios basicos';
-          flechaNegra2.textContent = "";
-          divResultadoPorcentaje2.textContent = resultadosFinales[seleccionarOpcion].toFixed(2) + " BS";
-        }
-        
-        prueba.appendChild(divResultadoPorcentaje);
-        prueba.appendChild(flechaNegra2);
-        prueba.appendChild(divResultadoPorcentaje2);
-      } else {
-        if (divResultadoPorcentaje) {
-          divResultadoPorcentaje.remove();
-          divResultadoPorcentaje2.remove();
-          flechaNegra2.remove();
-        }
-      
-        divResultadoPorcentaje = document.createElement('p');
-        divResultadoPorcentaje.textContent = 'No se encontró el multiplicador para la opción seleccionada';
-        prueba.appendChild(divResultadoPorcentaje);
-        prueba.appendChild(flechaNegra2);
-        prueba.appendChild(divResultadoPorcentaje2);
-      }
+    [
+      { id: 'flechaNegra2',         texto: '' },
+      { id: 'desgloseServicios',    texto: 'Servicios básicos (gas, agua, luz) — 2 %: ' + (gananciaTotal * 0.02).toFixed(2) + ' BS' },
+      { id: 'flechaNegraDes2',      texto: '' },
+      { id: 'desgloseReinversion',  texto: 'Reinversión — 30 %: ' + (gananciaTotal * 0.30).toFixed(2) + ' BS' },
+      { id: 'flechaNegraDes3',      texto: '' },
+      { id: 'desgloseGananciaNeta', texto: 'Ganancia neta — 68 %: ' + (gananciaTotal * 0.68).toFixed(2) + ' BS' },
+    ].forEach(function(item) {
+      var p = document.createElement('p');
+      p.id = item.id;
+      p.textContent = item.texto;
+      prueba.appendChild(p);
     });
-    
+
     // div separador
 
     const sumaMasdividir = document.createElement("div");
@@ -319,11 +266,6 @@ function calcularTotal(evento) {
 
     // div para dividir
 
-    const primeraOpcion = 0; // [0] Índice de la primera opción (100%)
-  
-    selectorPorcentual.selectedIndex = primeraOpcion;
-    selectorPorcentual.dispatchEvent(new Event('change'));
-    
     const formularioExistente = document.getElementById("formulario2");
     if (formularioExistente) {
       formularioExistente.parentNode.removeChild(formularioExistente);
@@ -384,13 +326,12 @@ function calcularTotal(evento) {
         return;
       }
 
-      const seleccionarOpcion = parseInt(selectorPorcentual.value);
-      const final = resultadosFinales[seleccionarOpcion]; // Obtendremos el resultado final correspondiente a la opción seleccionada
+      const final = resultadosFinales[100];
       
       if (isNaN(final)) {
         alert('No se ha calculado el total aún');
         return;
-      }
+      };
     
       const divResultadoDivision = document.createElement("div");
       divResultadoDivision.id = "resultadoDividir";
@@ -415,14 +356,10 @@ function calcularTotal(evento) {
       
     }
 
-    // div para sumar el total // [0] Índice de la primera opción (100%)
-  
-    selectorPorcentual.selectedIndex = primeraOpcion;
-    selectorPorcentual.dispatchEvent(new Event('change'));
-    
+    // div para sumar el total
     const formularioExistente3 = document.getElementById("formulario4");
     if (formularioExistente3) {
-      formularioExistente3.parentNode.removeChild(formulario4);
+      formularioExistente3.parentNode.removeChild(formularioExistente3);
     }
 
     const crearDivFormulario4 = document.createElement("div");
@@ -476,13 +413,12 @@ function calcularTotal(evento) {
         return;
       }
 
-      const seleccionarOpcion = parseInt(selectorPorcentual.value);
-      const final = resultadosFinales[seleccionarOpcion]; // Obtendremos el resultado final correspondiente a la opción seleccionada
-      
+      const final = resultadosFinales[100];
+
       if (isNaN(final)) {
         alert('No se ha calculado el total aún');
         return;
-      }
+      };
     
       const resultadoSuma2 = document.createElement("div");
       resultadoSuma2.id = "resultadoSuma2";
@@ -511,7 +447,7 @@ function calcularTotal(evento) {
     
     const formularioExistente2 = document.getElementById("formulario3");
     if (formularioExistente2) {
-      formularioExistente2.parentNode.removeChild(formularioExistente);
+      formularioExistente2.parentNode.removeChild(formularioExistente2);
     }
 
     const crearDivFormulario3 = document.createElement("div");
@@ -590,33 +526,6 @@ function calcularTotal(evento) {
       
     }
 
-    function descargarPDF() {
-      const opt = {
-        margin: 5,
-        filename: 'mipaginaweb.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 10 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-  
-      html2pdf().set(opt).from(document.getElementById('prueba')).save();
-    }
-    
-    var crearbotonPDF = document.createElement("button");
-    crearbotonPDF.id = "crearPdf";
-    crearbotonPDF.onclick = function() {
-        descargarPDF();
-      };
-    crearbotonPDF.textContent = "Descargar"
-    elementoMain.appendChild(crearbotonPDF);
-
-    var nuevaLogica = document.createElement("script");
-    nuevaLogica.src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js";
-    var divLogico = document.getElementById("logicas");
-    divLogico.appendChild(nuevaLogica);
-
-
-    
   document.getElementById('botonFormulario2').addEventListener('click', aparecerDiv);
   document.getElementById('botonFormulario2').addEventListener('click', ocultarSumarEnvase);
   document.getElementById('botonFormulario4').addEventListener('click', ocultarDivision);

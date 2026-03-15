@@ -277,7 +277,9 @@ td {
 #flechaNegra,
 #flechaNegra2,
 #flechaNegra3,
-#flechaNegra4 {
+#flechaNegra4,
+#flechaNegraDes2,
+#flechaNegraDes3 {
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
@@ -320,6 +322,28 @@ td {
     text-align: center;
     margin: 5px;
     background: white;
+}
+
+#desgloseServicios,
+#desgloseReinversion {
+    border: solid black 2px;
+    background: #ffcccc;
+    padding: 8px;
+    text-transform: uppercase;
+    margin: 10px 0 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+#desgloseGananciaNeta {
+    border: solid black 2px;
+    background: #ffe0b2;
+    padding: 8px;
+    text-transform: uppercase;
+    margin: 10px 0 0;
+    font-weight: bold;
+    text-align: center;
+    color: #b85c00;
 }
 
 #formulario2,
