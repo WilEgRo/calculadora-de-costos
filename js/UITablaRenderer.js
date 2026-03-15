@@ -1,7 +1,7 @@
 /**
  * UITablaRenderer.js
  * Renderizado de la lista de ingredientes, tablas de costos
- * y selector de porcentaje de ganancia.
+ * y bloque de precio/desglose de ganancia.
  *
  * Entrada: datos ya calculados listos para mostrar.
  * Salida:  nodos DOM creados en las secciones de tabla y selector.
@@ -120,72 +120,47 @@ export class UITablaRenderer {
     tBody.appendChild(trResumen);
   }
 
-  // ─── Selector de porcentaje de ganancia ───────────────────────────────────
+  // ─── Bloque de ganancia fija (100 %) ─────────────────────────────────────
 
   /**
-   * Construye el <select> de ganancia (50 %–100 %) en #resultadoTotal.
-   * @returns {HTMLSelectElement}
+   * Renderiza precio de venta y el desglose de la ganancia fija.
+   * @param {{ precioVenta: number, servicios: number, reinversion: number, gananciaNeta: number }} desglose
    */
-  renderizarSelectorPorcentaje() {
+  mostrarDesglosGanancia(desglose) {
     const contenedor     = document.getElementById('resultadoTotal');
     contenedor.innerHTML = '';
 
-    const leyenda          = document.createElement('legend');
-    leyenda.id             = 'legendDelSelector';
-    leyenda.textContent    = 'Ganancia en porcentaje';
+    const leyenda       = document.createElement('legend');
+    leyenda.id          = 'legendDelSelector';
+    leyenda.textContent = 'Precio de venta con 100% de ganancia';
     contenedor.appendChild(leyenda);
 
-    const flecha    = document.createElement('p');
-    flecha.id       = 'flechaNegra';
-    contenedor.appendChild(flecha);
+    const flechaPrecio = document.createElement('p');
+    flechaPrecio.id    = 'flechaNegra';
+    contenedor.appendChild(flechaPrecio);
 
-    const selector  = document.createElement('select');
-    selector.id     = 'selectorPorcentual';
-    for (let n = 100; n >= 50; n -= 10) {
-      const opcion         = document.createElement('option');
-      opcion.value         = n;
-      opcion.textContent   = `${n}%`;
-      selector.appendChild(opcion);
-    }
-    contenedor.appendChild(selector);
+    const precioVenta       = document.createElement('p');
+    precioVenta.id          = 'resultadoSinEnvase2';
+    precioVenta.textContent = `${desglose.precioVenta.toFixed(2)} BS`;
+    contenedor.appendChild(precioVenta);
 
-    return selector;
-  }
+    const tituloDesglose       = document.createElement('p');
+    tituloDesglose.id          = 'resultadoSinEnvase';
+    tituloDesglose.textContent = 'Desglose del 100% de ganancia:';
+    contenedor.appendChild(tituloDesglose);
 
-  /**
-   * Actualiza los párrafos de precio de venta según el porcentaje elegido.
-   * @param {number}  porcentaje       - Porcentaje de ganancia aplicado.
-   * @param {number}  precioFinal      - Precio de venta calculado.
-   * @param {boolean} incluyeServicios - Si se sumó el 2 % de servicios básicos.
-   */
-  actualizarVisualizacionPorcentaje(porcentaje, precioFinal, incluyeServicios) {
-    const contenedor = document.getElementById('resultadoTotal');
-
-    if (this._nodoEtiquetaPorcentaje) {
-      this._nodoEtiquetaPorcentaje.remove();
-      this._nodoFlechaPorcentaje.remove();
-      this._nodoPrecioPorcentaje.remove();
-    }
-
-    const etiqueta       = document.createElement('p');
-    etiqueta.id          = 'resultadoSinEnvase';
-    etiqueta.textContent = incluyeServicios
-      ? `El total por el ${porcentaje}% de ganancia más el 2% de servicios básicos`
-      : `El total por el ${porcentaje}% de ganancia`;
-
-    const flecha  = document.createElement('p');
-    flecha.id     = 'flechaNegra2';
-
-    const precio         = document.createElement('p');
-    precio.id            = 'resultadoSinEnvase2';
-    precio.textContent   = `${precioFinal.toFixed(2)} BS`;
-
-    contenedor.appendChild(etiqueta);
-    contenedor.appendChild(flecha);
-    contenedor.appendChild(precio);
-
-    this._nodoEtiquetaPorcentaje = etiqueta;
-    this._nodoFlechaPorcentaje   = flecha;
-    this._nodoPrecioPorcentaje   = precio;
+    [
+      { id: 'flechaNegra2',         texto: '' },
+      { id: 'desgloseServicios',    texto: `Servicios básicos (gas, agua, luz) — 2 %: ${desglose.servicios.toFixed(2)} BS` },
+      { id: 'flechaNegraDes2',      texto: '' },
+      { id: 'desgloseReinversion',  texto: `Reinversión — 30 %: ${desglose.reinversion.toFixed(2)} BS` },
+      { id: 'flechaNegraDes3',      texto: '' },
+      { id: 'desgloseGananciaNeta', texto: `Ganancia neta — 68 %: ${desglose.gananciaNeta.toFixed(2)} BS` },
+    ].forEach(({ id, texto }) => {
+      const p       = document.createElement('p');
+      p.id          = id;
+      p.textContent = texto;
+      contenedor.appendChild(p);
+    });
   }
 }
