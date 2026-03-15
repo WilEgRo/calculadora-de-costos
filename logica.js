@@ -589,12 +589,39 @@ function calcularTotal(evento) {
       divResultado.appendChild(h3Final);
       
     }
+
+    function descargarPDF() {
+      const opt = {
+        margin: 5,
+        filename: 'mipaginaweb.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 10 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+  
+      html2pdf().set(opt).from(document.getElementById('prueba')).save();
+    }
+    
+    var crearbotonPDF = document.createElement("button");
+    crearbotonPDF.id = "crearPdf";
+    crearbotonPDF.onclick = function() {
+        descargarPDF();
+      };
+    crearbotonPDF.textContent = "Descargar"
+    elementoMain.appendChild(crearbotonPDF);
+
+    var nuevaLogica = document.createElement("script");
+    nuevaLogica.src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js";
+    var divLogico = document.getElementById("logicas");
+    divLogico.appendChild(nuevaLogica);
+
+
     
   document.getElementById('botonFormulario2').addEventListener('click', aparecerDiv);
   document.getElementById('botonFormulario2').addEventListener('click', ocultarSumarEnvase);
   document.getElementById('botonFormulario4').addEventListener('click', ocultarDivision);
 
 }
-  
+ 
   document.getElementById('crearIngredientes').addEventListener('submit', generarLista);
   document.getElementById('listaIngredientesFormulario2').addEventListener('submit', calcularTotal);

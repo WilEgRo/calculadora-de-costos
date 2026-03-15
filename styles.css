@@ -69,6 +69,7 @@ main{
     background-attachment: fixed;
     height: 100vh;
     margin-top: 7px;
+    background-size: cover
 }
 
 #encabezado{
@@ -256,6 +257,7 @@ th {
     border: solid black 2px;
     background: #ffcccc;
     padding: 8px;
+    vertical-align: middle;
 }
 
 td {

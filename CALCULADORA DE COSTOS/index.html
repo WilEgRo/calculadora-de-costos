@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="reset.css">
+        <title>Costos</title>
+        <link rel="icon" href="imagenes/logo_32x32.png">
+    </head>
+    <body>
+        <header>
+           <div id="navegación">
+                <nav>
+                    <ul id="ulLogos">
+                        <li>
+                            <a href="https://www.facebook.com/LaMartinaCursos">
+                                <img id="logoFacebook" src="imagenes/facebook.png" alt="facebook la martina">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@lamartinacocina">
+                                <img id="logoTiktok" src="imagenes/tiktok.png" alt="tiktok la martina">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.link/0d6i23">
+                                <img id="logoWhatsapp" src="imagenes/whatsapp.png" alt="whatsapp la martina">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+           </div>
+        </header>
+
+        <main>
+        <section id="prueba">
+            <h1 id="encabezado">CALCULADORA DE COSTOS</h1>
+
+            <form id="crearIngredientes" onsubmit="generarLista(event)">
+                <label id="label1" for="cantidadIngredientes">Cantidad de ingredientes</label>
+                <input type="number" id="cantidadIngredientes" name="cantidadIngredientes" min="1" required onfocus="this.form.removeAttribute('onsubmit');">
+                <button type="submit">Crear lista</button>
+            </form>
+            
+            <h2 id="listah2">Lista de ingredientes</h2>
+            
+            <div id="padre">
+                <div id="formulario1"></div>
+                
+                <form id="listaIngredientesFormulario2">
+                    <ul id="listaIngredientes"></ul>
+                    <button id="botonCalcular" type="submit">calcular</button>
+                
+                </form>
+            </div>
+
+            <div id="primeraTabla">
+                <table id="tabla1">
+                    <thead id="tHead"></thead>
+                    <tbody id="tBody"></tbody>
+                </table>
+            </div>
+
+            <div id="segundaTabla">
+                <table id="tabla2">
+                    <thead id="tHeadDeLaTabla2"></thead>
+                    <tbody id="tBodyDeLaTabla2"></tbody>
+                </table>
+            </div>
+
+            <div id="resultadoTotal"></div>
+        </section>
+
+        </main>
+        
+        <section id="logicas">
+            <script src="logica.js"></script>
+        </section>
+        
+        <footer id="pie">
+            <div id="cajaInferior">
+                <h1>
+                    <a href="https://www.facebook.com/LaMartinaCursos">
+                        <img id="logo120" src="imagenes/logoBlanco.png" alt="logo de la martina">
+                    </a>
+                </h1>
+                <p id="LaMartina" class="Copyright">&copy Copyright La Martina <img id="tomatePie" src="imagenes/logo_32x32.png"> - 2026</p>
+           </div>
+
+        </footer>    
+    </body>
+</html>
