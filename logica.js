@@ -219,7 +219,7 @@ function calcularTotal(evento) {
     prueba.innerHTML = '';
 
     // Precio de venta con 100% de ganancia (multiplicador ×3)
-    // El desglose (2 %, 30 %, 68 %) se calcula sobre la GANANCIA mostrada en tabla.
+    // El desglose (10 %, 30 %, 60 %) se calcula sobre la GANANCIA mostrada en tabla.
     var precioVenta      = total * 3;
     var gananciaTotal    = total;
     var resultadosFinales = { 100: precioVenta };
@@ -245,11 +245,11 @@ function calcularTotal(evento) {
 
     [
       { id: 'flechaNegra2',         texto: '' },
-      { id: 'desgloseServicios',    texto: 'Servicios básicos (gas, agua, luz) — 2 %: ' + (gananciaTotal * 0.02).toFixed(2) + ' BS' },
+      { id: 'desgloseServicios',    texto: 'Servicios básicos (gas, agua, luz) — 10 %: ' + (gananciaTotal * 0.10).toFixed(2) + ' BS' },
       { id: 'flechaNegraDes2',      texto: '' },
       { id: 'desgloseReinversion',  texto: 'Reinversión — 30 %: ' + (gananciaTotal * 0.30).toFixed(2) + ' BS' },
       { id: 'flechaNegraDes3',      texto: '' },
-      { id: 'desgloseGananciaNeta', texto: 'Ganancia neta — 68 %: ' + (gananciaTotal * 0.68).toFixed(2) + ' BS' },
+      { id: 'desgloseGananciaNeta', texto: 'Ganancia neta — 60 %: ' + (gananciaTotal * 0.60).toFixed(2) + ' BS' },
     ].forEach(function(item) {
       var p = document.createElement('p');
       p.id = item.id;

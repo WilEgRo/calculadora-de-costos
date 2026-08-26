@@ -173,11 +173,11 @@ export class UITablaRenderer {
 
     [
       { id: 'flechaNegra2',         texto: '' },
-      { id: 'desgloseServicios',    texto: `Servicios básicos (gas, agua, luz) — 2 %: ${desglose.servicios.toFixed(2)} BS` },
+      { id: 'desgloseServicios',    texto: `Servicios básicos (gas, agua, luz) — 10 %: ${desglose.servicios.toFixed(2)} BS` },
       { id: 'flechaNegraDes2',      texto: '' },
       { id: 'desgloseReinversion',  texto: `Reinversión — 30 %: ${desglose.reinversion.toFixed(2)} BS` },
       { id: 'flechaNegraDes3',      texto: '' },
-      { id: 'desgloseGananciaNeta', texto: `Ganancia neta — 68 %: ${desglose.gananciaNeta.toFixed(2)} BS` },
+      { id: 'desgloseGananciaNeta', texto: `Ganancia neta — 60 %: ${desglose.gananciaNeta.toFixed(2)} BS` },
     ].forEach(({ id, texto }) => {
       const p       = document.createElement('p');
       p.id          = id;

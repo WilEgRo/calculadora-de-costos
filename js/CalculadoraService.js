@@ -41,7 +41,7 @@ export function calcularCostoTotalIngredientes(subtotales) {
 /**
  * Calcula el precio de venta con 100 % de ganancia y desglosa su distribución.
  * Fórmula: precio_venta = total × 3.  Ganancia = total (misma base de la tabla).
- * Distribución: 2 % servicios básicos, 30 % reinversión, 68 % ganancia neta.
+ * Distribución: 10 % servicios básicos, 30 % reinversión, 60 % ganancia neta.
  *
  * @param  {number} totalIngredientes
  * @returns {{ precioVenta: number, servicios: number, reinversion: number, gananciaNeta: number }}
@@ -51,9 +51,9 @@ export function calcularDesglosGanancia(totalIngredientes) {
   const ganancia    = totalIngredientes;
   return {
     precioVenta,
-    servicios:    ganancia * 0.02,
+    servicios:    ganancia * 0.10,
     reinversion:  ganancia * 0.30,
-    gananciaNeta: ganancia * 0.68,
+    gananciaNeta: ganancia * 0.60,
   };
 }
 
